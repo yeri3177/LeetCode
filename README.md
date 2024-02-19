@@ -1,2 +1,5 @@
-# Algorithm
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0)
+# AlgorithmStudy for java
+
+https://leetcode.com/studyplan/leetcode-75/
+
+java Coding Test 공부!
