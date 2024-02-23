@@ -17,13 +17,11 @@ class Solution {
         for(int i=0; i<ch.length-k; i++){
             // 앞에꺼 모음이면 cnt-1
             if(vowels.indexOf(ch[i]) != -1){
-                //System.out.println("ch[i] : "+i);
                 cnt--;
             }
 
             // 뒤에꺼 모음이면 cnt+1
             if(vowels.indexOf(ch[i+k]) != -1){
-                //System.out.println("ch[i+k] : "+(i+k));
                 cnt++;
             }
 
