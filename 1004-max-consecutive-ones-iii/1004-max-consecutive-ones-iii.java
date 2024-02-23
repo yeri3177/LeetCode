@@ -1,22 +1,23 @@
 class Solution {
     public int longestOnes(int[] nums, int k) {
-        int start=0; // 시작 포인터
-        int end=0; // 끝 포인터
-        int zeros=0; // 0 개수 누적
+        int lt=0, rt=0, max=0, zeroCnt=0;
 
-        while(end<nums.length){
-            if(nums[end] == 0){
-                zeros++;
+        while(rt<nums.length){
+            if(nums[rt]==0){
+                zeroCnt++;
             }
-            end++; // 끝 포인터 이동 
 
-            if(zeros>k){
-                if(nums[start] == 0){
-                    zeros--;
+            while(zeroCnt>k){
+                if(nums[lt]==0){
+                    zeroCnt--;
                 }
-                start++; // 시작 포인터 이동 
+                lt++;
             }
+
+            max=Math.max(max,rt-lt+1);
+            rt++;
         }
-        return end-start; // 인덱스번호 빼기로 개수 세기 
+
+        return max;
     }
 }
