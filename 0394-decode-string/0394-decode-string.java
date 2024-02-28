@@ -1,5 +1,41 @@
 class Solution {
     public String decodeString(String s) {
+        Stack<Integer> numberStack = new Stack<>();
+        Stack<StringBuilder> sbStack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        int n = 0;
+
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) { 
+                n = n * 10 + (c - '0'); // c - '0'는 0의 아스키코드(48)을 빼서 char -> int로 바꿔줌
+            } 
+            else if (c == '[') {
+                numberStack.push(n); //숫자는 numberStack에 넣기
+                n = 0; // n을 0으로 리셋
+                
+                sbStack.push(sb); // 기존 문자열은 sbStack에 넣기 
+                sb = new StringBuilder(); // sb 초기화 
+            } 
+            else if (c == ']') {
+                int cnt = numberStack.pop(); // 반복할 숫자
+                StringBuilder temp = sb; // 반복할 단어 
+                sb = sbStack.pop(); // 앞에 완성해둔 단어
+
+                while (cnt-- > 0) {
+                    sb.append(temp); // cnt만큼 temp 문자를 반복하기 
+                }
+            } 
+            else {
+                sb.append(c); // sb에 []괄호안에 있는 문자 넣기 
+            }
+        }
+        return sb.toString();
+    }
+
+
+    // 내가 한 방법...
+    /*
+    public String decodeString(String s) {
         StringBuilder sb = new StringBuilder(s);
         Stack<Character> stack=new Stack<>();
         
@@ -45,4 +81,5 @@ class Solution {
 
         return sb.toString();
     }
+    */
 }
