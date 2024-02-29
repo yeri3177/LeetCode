@@ -17,7 +17,7 @@ class Solution {
         ListNode fast = head.next.next; // [4,7,1,2,6]
         ListNode slow = head; // [1,3,4,7,1,2,6]
         
-        while(fast != null && fast.next != null){ // 1번만 반복 
+        while(fast != null && fast.next != null){ // 2번 반복 
             fast = fast.next.next; // [1,2,6] -> [6]
             slow = slow.next; // [3,4,7,1,2,6] -> [4,7,1,2,6]
         }
