@@ -24,6 +24,6 @@ class Solution {
         
         slow.next =  slow.next.next; // [3, 4] = [4]
 
-        return head;
+        return head; // [1, 2, 4]
     }
 }
