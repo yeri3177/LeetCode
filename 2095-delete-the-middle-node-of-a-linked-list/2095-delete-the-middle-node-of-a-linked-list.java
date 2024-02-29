@@ -13,17 +13,17 @@ class Solution {
             return null;
         }
 
-        // head = [1,2,3,4]
-        ListNode fast = head.next.next; // [3,4]
-        ListNode slow = head; // [1,2,3,4]
+        // head = [1,3,4,7,1,2,6]
+        ListNode fast = head.next.next; // [4,7,1,2,6]
+        ListNode slow = head; // [1,3,4,7,1,2,6]
         
         while(fast != null && fast.next != null){ // 1번만 반복 
-            fast = fast.next.next; // []
-            slow = slow.next; // [2,3,4] 
+            fast = fast.next.next; // [1,2,6] -> [6]
+            slow = slow.next; // [3,4,7,1,2,6] -> [4,7,1,2,6]
         }
         
-        slow.next =  slow.next.next; // [3, 4] = [4]
+        slow.next =  slow.next.next; // [7,1,2,6] = [1,2,6] : 7 제거 
 
-        return head; // [1, 2, 4]
+        return head; // [1,3,4,1,2,6]
     }
 }
