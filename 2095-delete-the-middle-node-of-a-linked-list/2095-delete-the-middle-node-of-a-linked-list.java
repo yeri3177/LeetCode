@@ -12,16 +12,17 @@ class Solution {
         if(head.next == null){
             return null;
         }
+
+        // head = [1,2,3,4]
+        ListNode fast = head.next.next; // [3,4]
+        ListNode slow = head; // [1,2,3,4]
         
-        ListNode fast = head.next.next;
-        ListNode slow = head;
-        
-        while(fast != null && fast.next != null){
-            fast = fast.next.next;
-            slow = slow.next;
+        while(fast != null && fast.next != null){ // 1번만 반복 
+            fast = fast.next.next; // []
+            slow = slow.next; // [2,3,4] 
         }
         
-        slow.next =  slow.next.next; // 중간노드 삭제 
+        slow.next =  slow.next.next; // [3, 4] = [4]
 
         return head;
     }
