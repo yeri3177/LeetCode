@@ -31,7 +31,7 @@ class Solution {
             list.add(root.val);
         }
         
-        dfs(root.right, list);
         dfs(root.left, list);
+        dfs(root.right, list);
     }
 }
