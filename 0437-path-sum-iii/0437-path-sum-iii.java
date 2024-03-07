@@ -22,15 +22,11 @@ class Solution {
     public int getSum(TreeNode root, int targetSum, long sum) {
         int cnt = 0;
         if (root == null) return cnt;
-        
         sum += root.val;
         
         if (sum == targetSum) cnt++;
-        
         cnt += getSum(root.left, targetSum, sum);
         cnt += getSum(root.right, targetSum, sum);
-        
-        sum -= root.val;
         
         return cnt;
     } 
